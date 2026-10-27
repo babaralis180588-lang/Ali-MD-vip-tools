@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALI MD VIP TOOLS</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+background:#05070d;
+font-family:Poppins,sans-serif;
+color:white;
+overflow-x:hidden;
+}
+.title{font-family:Orbitron,sans-serif;}
+.glow{box-shadow:0 0 20px #39ff14;}
+.card{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(57,255,20,.25);
+backdrop-filter:blur(10px);
+border-radius:18px;
+}
+.btn{
+background:#39ff14;
+color:black;
+font-weight:bold;
+padding:10px 18px;
+border-radius:12px;
+transition:.25s;
+}
+.btn:hover{transform:scale(1.03);}
+.neon{color:#39ff14;text-shadow:0 0 12px #39ff14;}
+img.gray{filter:grayscale(100%);}
+</style>
+</head>
+<body>
+
+<div class="fixed inset-0 -z-10">
+<div class="absolute w-72 h-72 bg-green-500/20 blur-[120px] top-0 left-0 rounded-full"></div>
+<div class="absolute w-72 h-72 bg-cyan-500/20 blur-[120px] bottom-0 right-0 rounded-full"></div>
+</div>
+
+<div class="max-w-5xl mx-auto p-5">
+
+<div class="text-center py-8">
+<h1 class="title text-4xl neon">ALI MD VIP TOOLS</h1>
+<p class="text-gray-300 mt-2">Premium Multi Tools Website</p>
+</div>
+
+<div class="card p-4 mb-6">
+<input id="search" placeholder="Search tools..."
+class="w-full bg-black/40 border border-green-400 rounded-xl p-3 outline-none"
+oninput="searchTools()">
+</div>
+
+<div class="grid md:grid-cols-2 gap-5" id="tools">
+
+<!-- TEXT TOOLS -->
+<div class="card p-5 tool" data-name="Text Tools Upper Lower Copy">
+<h2 class="title text-xl neon mb-3">Text Tools</h2>
+
+<textarea id="txt" rows="6"
+placeholder="Yahan text likho..."
+class="w-full bg-black/40 rounded-xl p-3 border border-green-400 outline-none"></textarea>
+
+<div class="grid grid-cols-2 gap-2 mt-3">
+<button class="btn" onclick="upper()">UPPER</button>
+<button class="btn" onclick="lower()">lower</button>
+<button class="btn" onclick="copyText()">Copy</button>
+<button class="btn" onclick="clearText()">Clear</button>
+</div>
+</div>
+
+<!-- QR TOOL -->
+<div class="card p-5 tool" data-name="QR Generator QR Code">
+<h2 class="title text-xl neon mb-3">QR Generator</h2>
+
+<input id="qrtext"
+placeholder="Link ya text likho"
+class="w-full bg-black/40 rounded-xl p-3 border border-green-400 outline-none">
+
+<button class="btn w-full mt-3" onclick="makeQR()">Generate QR</button>
+
+<div class="mt-4 flex justify-center">
+<img id="qrimg" class="rounded-xl hidden bg-white p-2">
+</div>
+</div>
+
+<!-- IMAGE TOOL -->
+<div class="card p-5 tool" data-name="Image Preview Download Grayscale">
+<h2 class="title text-xl neon mb-3">Image Utility</h2>
+
+<input type="file" accept="image/*" onchange="preview(event)"
+class="w-full text-sm">
+
+<div class="mt-4 text-center">
+<img id="img" class="max-h-64 mx-auto rounded-xl hidden">
+</div>
+
+<div class="grid grid-cols-2 gap-2 mt-4">
+<button class="btn" onclick="gray()">Grayscale</button>
+<button class="btn" onclick="downloadImg()">Download</button>
+</div>
+</div>
+
+<!-- CONTACT -->
+<div class="card p-5 tool" data-name="WhatsApp Channel Contact">
+<h2 class="title text-xl neon mb-3">Connect With ALI MD</h2>
+
+<a href="https://whatsapp.com/channel/0029Vb8ljdBL2ATvPcXyPP46"
+target="_blank"
+class="block btn text-center mb-3">
+Join WhatsApp Channel
+</a>
+
+<a href="https://wa.me/923011437623"
+target="_blank"
+class="block btn text-center">
+Contact on WhatsApp
+</a>
+
+<p class="mt-3 text-gray-300 text-sm">
+Number: +92 301 1437623
+</p>
+</div>
+
+</div>
+
+<footer class="text-center py-8 mt-8 text-gray-400">
+<p>© 2026 ALI MD VIP TOOLS</p>
+<p class="text-green-400">Powered By ALI MD</p>
+</footer>
+
+</div>
+
+<script>
+function upper(){
+txt.value=txt.value.toUpperCase();
+}
+function lower(){
+txt.value=txt.value.toLowerCase();
+}
+function clearText(){
+txt.value="";
+}
+function copyText(){
+navigator.clipboard.writeText(txt.value);
+alert("Text Copied!");
+}
+
+function makeQR(){
+let t=document.getElementById("qrtext").value.trim();
+if(!t)return;
+let img=document.getElementById("qrimg");
+img.src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data="+encodeURIComponent(t);
+img.classList.remove("hidden");
+}
+
+let imgEl=document.getElementById("img");
+
+function preview(e){
+let file=e.target.files[0];
+if(!file)return;
+imgEl.src=URL.createObjectURL(file);
+imgEl.classList.remove("hidden");
+}
+
+function gray(){
+imgEl.classList.toggle("gray");
+}
+
+function downloadImg(){
+if(!imgEl.src)return;
+let a=document.createElement("a");
+a.href=imgEl.src;
+a.download="ALI-MD-image";
+a.click();
+}
+
+function searchTools(){
+let q=document.getElementById("search").value.toLowerCase();
+document.querySelectorAll(".tool").forEach(t=>{
+t.style.display=t.dataset.name.toLowerCase().includes(q)?"block":"none";
+});
+}
+</script>
+
+</body>
+</html>
