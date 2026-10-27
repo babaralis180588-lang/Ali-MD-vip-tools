@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ali Tools 46 - Powered by Ali</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#070e22;color:#fff;min-height:100vh}
+header{padding:20px;text-align:center;background:#0e1933;border-bottom:1px solid #1e2d55;position:sticky;top:0;z-index:10}
+header h1{font-size:28px} header h1 span{color:#22d3ee}
+header p{font-size:13px;color:#94a3b8}
+.top-btns{display:flex;gap:10px;justify-content:center;margin-top:12px;flex-wrap:wrap}
+.top-btns a{padding:8px 16px;border-radius:25px;text-decoration:none;font-weight:600;font-size:12px}
+.btn-wp{background:#25D366;color:#fff} .btn-ch{background:#0ea5e9;color:#fff}
+.container{max-width:1100px;margin:auto;padding:15px}
+#homeGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.card{background:#121f3e;border:1px solid #1e2d55;padding:16px;border-radius:16px;text-align:center;cursor:pointer;transition:0.2s}
+.card:hover{transform:translateY(-3px);border-color:#22d3ee;background:#162752}
+.card .icon{font-size:28px} .card h3{font-size:13px;margin-top:8px;min-height:36px}
+.tool-page{display:none;background:#0e1933;border:1px solid #1e2d55;border-radius:18px;padding:20px;margin-top:15px}
+.tool-page.active{display:block}
+.tool-page h2{color:#22d3ee;margin-bottom:10px;font-size:20px}
+.tool-page input,.tool-page textarea,.tool-page select{width:100%;padding:12px;margin:8px 0;border-radius:10px;border:1px solid #1e2d55;background:#070e22;color:#fff;outline:none}
+.btn-main{background:#22d3ee;color:#000;border:none;padding:12px 20px;border-radius:25px;font-weight:700;width:100%;cursor:pointer;margin-top:10px}
+.result{margin-top:12px;background:#070e22;padding:12px;border-radius:10px;border:1px dashed #22d3ee;word-break:break-all;font-size:13px;min-height:40px}
+.back{color:#94a3b8;cursor:pointer;font-size:13px;margin-bottom:10px;display:inline-block}
+footer{text-align:center;padding:20px;color:#64748b;font-size:11px;margin-top:20px;border-top:1px solid #1e2d55}
+footer b{color:#22d3ee}
+</style>
+</head>
+<body>
+<header>
+<h1>ALI <span>TOOLS 46</span></h1>
+<p>Powered By Ali - All Tools In One Place</p>
+<div class="top-btns">
+<a class="btn-wp" href="https://wa.me/923011437623">WhatsApp: 03011437623</a>
+<a class="btn-ch" href="https://whatsapp.com/channel/0029Vb8ljdBL2ATvPcXyPP46">Join Channel</a>
+</div>
+</header>
+
+<div class="container">
+<div id="homeGrid">
+<div class="card" onclick="openTool('unban')"><div class="icon">🔓</div><h3>WhatsApp Unban Request</h3></div>
+<div class="card" onclick="openTool('link')"><div class="icon">🔗</div><h3>WA Link Generator</h3></div>
+<div class="card" onclick="openTool('stylish')"><div class="icon">✨</div><h3>Stylish Name Maker</h3></div>
+<div class="card" onclick="openTool('bio')"><div class="icon">📝</div><h3>Stylish Bio</h3></div>
+<div class="card" onclick="openTool('about')"><div class="icon">ℹ️</div><h3>About Generator</h3></div>
+<div class="card" onclick="openTool('channel')"><div class="icon">📢</div><h3>Channel Link Maker</h3></div>
+<div class="card" onclick="openTool('direct')"><div class="icon">💬</div><h3>Direct Chat Opener</h3></div>
+<div class="card" onclick="openTool('textrepeat')"><div class="icon">🔁</div><h3>Text Repeater</h3></div>
+</div>
+
+<!-- TOOLS PAGES -->
+<div id="unban" class="tool-page">
+<span class="back" onclick="goHome()">⬅ Back to Home</span>
+<h2>🔓 WhatsApp Unban Tool</h2>
+<input id="unbanNum" placeholder="Enter Your Banned Number e.g. 923011437623">
+<textarea id="unbanMsg" rows="5">Hello WhatsApp Support Team, My number +[YOUR NUMBER] got banned by mistake. Please review and unban my account. I will follow all Terms. Thank you.</textarea>
+<button class="btn-main" onclick="generateUnban()">Generate Unban Email</button>
+<div id="unbanRes" class="result"></div>
+<button class="btn-main" style="background:#25D366;color:#fff" onclick="window.open('mailto:support@whatsapp.com?subject=Unban Request&body='+document.getElementById('unbanRes').innerText)">Send Email to WhatsApp</button>
+</div>
+
+<div id="link" class="tool-page">
+<span class="back" onclick="goHome()">⬅ Back to Home</span>
+<h2>🔗 WhatsApp Link Generator</h2>
+<input id="linkNum" placeholder="Enter Number e.g. 923011437623">
+<input id="linkMsg" placeholder="Enter Message (Optional)">
+<button class="btn-main" onclick="generateLink()">Generate Link</button>
+<div id="linkRes" class="result"></div>
+</div>
+
+<div id="stylish" class="tool-page">
+<span class="back" onclick="goHome()">⬅ Back to Home</span>
+<h2>✨ Stylish Name Maker</h2>
+<input id="stylishInput" placeholder="Enter Name e.g. Ali">
+<button class="btn-main" onclick="generateStylish()">Generate Styles</button>
+<div id="stylishRes" class="result" style="line-height:2"></div>
+</div>
+
+<div id="bio" class="tool-page">
+<span class="back" onclick="goHome()">⬅ Back to Home</span>
+<h2>📝 Stylish Bio Generator</h2>
+<textarea id="bioInput" placeholder="Enter Your Bio Text"></textarea>
+<button class="btn-main" onclick="generateBio()">Generate Bio Styles</button>
+<div id="bioRes" class="result"></div>
+</div>
+
+<div id="about" class="tool-page">
+<span class="back" onclick="goHome()">⬅ Back to Home</span>
+<h2>ℹ️ WhatsApp About Generator</h2>
+<select id="aboutSelect">
+<option>Available | Powered by Ali</option>
+<option>Busy | Contact 03011437623</option>
+<option>Alhamdulillah For Everything ❤️</option>
+<option>Life is Short, Make it Sweet 😊</option>
+<option>Powered By Ali Tools 46 🔥</option>
+</select>
+<div id="aboutRes" class="result">Select one</div>
+</div>
+
+<div id="channel" class="tool-page">
+<span class="back" onclick="goHome()">⬅ Back to Home</span>
+<h2>📢 Your Channel Link</h2>
+<p style="font-size:13px;color:#94a3b8">This is your official channel link:</p>
+<div class="result">https://whatsapp.com/channel/0029Vb8ljdBL2ATvPcXyPP46</div>
+<button class="btn-main" onclick="navigator.clipboard.writeText('https://whatsapp.com/channel/0029Vb8ljdBL2ATvPcXyPP46');alert('Link Copied!')">Copy Channel Link</button>
+<a href="https://whatsapp.com/channel/0029Vb8ljdBL2ATvPcXyPP46" class="btn-main" style="display:block;text-align:center;text-decoration:none;background:#0ea5e9;color:#fff;margin-top:8px">Open Channel</a>
+</div>
+
+<div id="direct" class="tool-page">
+<span class="back" onclick="goHome()">⬅ Back to Home</span>
+<h2>💬 Direct Chat Opener</h2>
+<input id="directNum" placeholder="Number e.g. 923011437623">
+<button class="btn-main" onclick="window.open('https://wa.me/'+document.getElementById('directNum').value)">Open Chat in WhatsApp</button>
+</div>
+
+<div id="textrepeat" class="tool-page">
+<span class="back" onclick="goHome()">⬅ Back to Home</span>
+<h2>🔁 Text Repeater</h2>
+<input id="repText" placeholder="Enter Text">
+<input id="repNum" type="number" placeholder="How many times? e.g. 10">
+<button class="btn-main" onclick="generateRepeat()">Repeat</button>
+<div id="repRes" class="result"></div>
+</div>
+
+</div>
+
+<footer>Powered By <b>Ali</b> | 03011437623 | <a href="https://whatsapp.com/channel/0029Vb8ljdBL2ATvPcXyPP46" style="color:#22d3ee">Channel Link</a> <br>© 2026 Ali Tools 46 - Inspired by Aman Tools</footer>
+
+<script>
+function openTool(id){
+document.getElementById('homeGrid').style.display='none';
+document.querySelectorAll('.tool-page').forEach(p=>p.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+window.scrollTo(0,0);
+}
+function goHome(){
+document.getElementById('homeGrid').style.display='grid';
+document.querySelectorAll('.tool-page').forEach(p=>p.classList.remove('active'));
+}
+function generateLink(){
+let n=document.getElementById('linkNum').value;
+let m=document.getElementById('linkMsg').value;
+let link='https://wa.me/'+n+(m?'?text='+encodeURIComponent(m):'');
+document.getElementById('linkRes').innerText=link;
+}
+function generateUnban(){
+let n=document.getElementById('unbanNum').value || '923011437623';
+let msg=document.getElementById('unbanMsg').value.replace('[YOUR NUMBER]',n);
+document.getElementById('unbanRes').innerText=msg;
+}
+function generateStylish(){
+let t=document.getElementById('stylishInput').value;
+if(!t)return;
+let styles=[`꧁༺ ${t} ༻꧂`,`『 ${t} 』`,`★彡 ${t} 彡★`,`╰┈➤ ${t} 𓆩⚝𓆪`,`『${t}』亗`,`『 ${t.toUpperCase()} 』`];
+document.getElementById('stylishRes').innerHTML=styles.join('<br>');
+}
+function generateBio(){
+let t=document.getElementById('bioInput').value;
+document.getElementById('bioRes').innerHTML=`1. ${t}<br>2. ♛ ${t} ♛<br>3. ༺ ${t} ༻<br>4. ${t.toUpperCase()} 🔥`;
+}
+function generateRepeat(){
+let t=document.getElementById('repText').value;
+let n=parseInt(document.getElementById('repNum').value)||5;
+let out='';
+for(let i=0;i<n;i++) out+=t+'\n';
+document.getElementById('repRes').innerText=out;
+}
+document.getElementById('aboutSelect').addEventListener('change',function(){
+document.getElementById('aboutRes').innerText=this.value;
+});
+</script>
+</body>
+  </html>
