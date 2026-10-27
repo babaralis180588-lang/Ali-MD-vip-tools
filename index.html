@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ALI MD VIP TOOLS</title>
+<style>
+:root{--bg:#120d24;--panel:#1d1640;--line:#352a6b;--text:#f6f2ff;--mute:#b3a9d9;
+--c1:#25d366;--c2:#ff4d8d;--c3:#ff9f1c;--c4:#ffd23f;--c5:#3a86ff;--c6:#8338ec;--c7:#00d4d4;--ac:var(--c1)}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 10% 0,#3b1d6e55,transparent 45%),radial-gradient(circle at 100% 30%,#00d4d422,transparent 40%),var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;min-height:100vh;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+header{max-width:760px;margin:auto;padding:26px 18px 6px;text-align:center}
+h1{margin:0;font-size:2rem;background:linear-gradient(90deg,var(--c1),var(--c4),var(--c3),var(--c2),var(--c6),var(--c5),var(--c7));-webkit-background-clip:text;background-clip:text;color:transparent}
+header p{margin:4px 0 0;color:var(--mute)}
+.bar{height:5px;max-width:760px;margin:12px auto 0;border-radius:9px;background:linear-gradient(90deg,var(--c1),var(--c4),var(--c3),var(--c2),var(--c6),var(--c5),var(--c7))}
+nav{display:flex;gap:8px;overflow-x:auto;max-width:760px;margin:14px auto 0;padding:2px 18px 6px}
+nav button{flex:none;color:#fff;border:2px solid var(--k);background:transparent;border-radius:999px;padding:9px 15px;font:inherit;cursor:pointer}
+nav button.on{background:var(--k);color:#10101a;font-weight:700}
+main{max-width:760px;margin:10px auto;padding:0 18px}
+section{display:none;background:var(--panel);border:1px solid var(--line);border-top:5px solid var(--ac);border-radius:16px;padding:18px}
+section.on{display:block}
+h2{margin:0 0 12px;font-size:1.2rem;color:var(--ac)}
+label{display:block;margin:12px 0 4px;color:var(--mute);font-size:.9rem}
+input,select,textarea{width:100%;background:#120d24;color:var(--text);border:1px solid var(--line);border-radius:10px;padding:11px;font:inherit}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--ac);border-color:var(--ac)}
+textarea{min-height:110px;resize:vertical}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{background:var(--ac);color:#10101a;border:0;border-radius:10px;padding:10px 16px;font:inherit;font-weight:700;cursor:pointer}
+.btn.b2{background:var(--c2)}.btn.b3{background:var(--c3)}.btn.b5{background:var(--c5);color:#fff}.btn.b6{background:var(--c6);color:#fff}.btn.b7{background:var(--c7)}
+.out{white-space:pre-wrap;background:#120d24;border:1px dashed var(--ac);border-radius:10px;padding:12px;margin-top:12px;min-height:48px;word-break:break-word}
+.hist{margin-top:12px;display:grid;gap:8px}
+.hist div{border:1px solid var(--line);border-left:4px solid var(--c4);border-radius:10px;padding:10px;font-size:.9rem;cursor:pointer}
+.hist small{color:var(--mute);display:block}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:.8rem;background:var(--c6);color:#fff}
+.pill.ok{background:var(--c1);color:#10101a}
+canvas{max-width:100%;margin-top:12px;border-radius:8px}
+#qr{background:#fff;display:inline-block;padding:10px;margin-top:12px;border-radius:10px}
+.note{color:var(--mute);font-size:.85rem;margin-top:12px}
+a{color:var(--c7)}
+footer{max-width:760px;margin:12px auto 32px;padding:0 18px;color:var(--mute);font-size:.9rem;text-align:center}
+footer .row{justify-content:center}
+footer .btn{text-decoration:none;display:inline-block}
+
+.hero{max-width:760px;margin:14px auto 0;padding:0 18px;text-align:center}
+.hero b{display:block;letter-spacing:.5px}
+#clock{font-size:1.5rem;font-weight:700;color:var(--c4)}
+.top{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:10px}
+.bell{position:fixed;top:calc(env(safe-area-inset-top) + 12px);right:14px;z-index:20;background:var(--c2);border:0;border-radius:50%;width:44px;height:44px;font-size:1.2rem;cursor:pointer}
+.bell i{position:absolute;top:-4px;right:-4px;background:var(--c4);color:#10101a;border-radius:999px;font:700 .7rem/1 system-ui;padding:3px 6px;font-style:normal}
+.mod{position:fixed;inset:0;background:#000a;display:none;align-items:center;justify-content:center;z-index:50;padding:18px}
+.mod.on{display:flex}
+.box{background:var(--panel);border:1px solid var(--line);border-top:5px solid var(--c2);border-radius:16px;padding:20px;max-width:380px;width:100%;position:relative}
+.box h3{margin:0 0 8px;color:var(--c4)}
+.x{position:absolute;top:8px;right:12px;background:none;border:0;color:var(--text);font-size:1.5rem;cursor:pointer}
+.nl div{border-left:4px solid var(--c7);background:#120d24;border-radius:8px;padding:9px;margin-top:8px;font-size:.9rem}
+.nl div.read{opacity:.5;border-left-color:var(--line)}
+</style>
+</head>
+<body>
+<header>
+  <h1>ALI MD VIP TOOLS</h1>
+  <p>Premium Multi Tools Website</p>
+</header>
+<button class="bell" id="bell" aria-label="Notifications">&#128276;<i id="bn">3</i></button>
+<div class="hero">
+  <b>WELCOME TO ALI MD TOOLKIT</b>
+  <div id="clock">0:00</div>
+  <div class="top">
+    <button class="btn b6" id="comm">Join Our Community</button>
+    <button class="btn b7" id="inst" style="display:none">Install Ali MD Tools App</button>
+  </div>
+</div>
+<div class="mod" id="m1"><div class="box"><button class="x" data-x="m1">&times;</button>
+  <h3>ALI MD TECH ZONE</h3>
+  <p>Naye tools, updates aur releases seedha ALI MD WhatsApp Channel par paayein.</p>
+  <div class="row"><a class="btn b2" href="https://whatsapp.com/channel/0029Vb8ljdBL2ATvPcXyPP46" target="_blank" rel="noopener">Follow Channel</a>
+  <a class="btn" href="https://wa.me/923011437623" target="_blank" rel="noopener">Contact +92 301 1437623</a></div></div></div>
+<div class="mod" id="m2"><div class="box"><button class="x" data-x="m2">&times;</button>
+  <h3>NOTIFICATIONS</h3>
+  <div class="nl" id="nl"><div>ALI MD VIP TOOLS mein khush aamdeed!</div><div>Naya: Password Generator aur WhatsApp Link Maker.</div><div>Channel join karein, updates miss na karein.</div></div>
+  <div class="row"><button class="btn b5" id="mar">Mark all as read</button></div></div></div>
+<div class="bar"></div>
+
+<nav id="tabs"></nav>
+
+<main>
+  <section id="wa">
+    <h2>WhatsApp Ban Report &amp; Unban Appeal</h2>
+    <span class="pill" id="dbst">Database: checking</span>
+    <label for="num">WhatsApp number (country code ke saath)</label>
+    <input id="num" inputmode="tel" placeholder="+92 3XX XXXXXXX">
+    <label for="issue">Issue select karein</label>
+    <select id="issue">
+      <option value="appeal">My WhatsApp account is banned - Unban Appeal</option>
+      <option value="restrict">Report an account restriction</option>
+      <option value="biz">WhatsApp Business account is banned</option>
+    </select>
+    <label for="detail">Issue ki tafseel</label>
+    <textarea id="detail" placeholder="Kab se band hai, kya hua tha..."></textarea>
+    <div class="row">
+      <button class="btn" id="gen">Generate Support Message</button>
+      <button class="btn b5" id="copy">Copy Message</button>
+      <button class="btn b3" id="save">Save</button>
+    </div>
+    <div class="out" id="msg">Message yahan nazar aayega.</div>
+    <div class="row"><a href="https://faq.whatsapp.com/" target="_blank" rel="noopener">Official WhatsApp Help</a></div>
+    <p class="note">Sirf WhatsApp hi ban review karke hata sakta hai. OTP ya verification code kisi se share na karein.</p>
+    <h2 style="margin-top:20px;color:var(--c4)">Saved messages</h2>
+    <div class="hist" id="hist"></div>
+    <div class="row"><button class="btn b2" id="clr">Clear saved</button></div>
+  </section>
+
+  <section id="text">
+    <h2>Text Tools</h2>
+    <textarea id="tt" placeholder="Yahan text likhein"></textarea>
+    <div class="row">
+      <button class="btn" id="up">UPPER</button>
+      <button class="btn b3" id="lo">lower</button>
+      <button class="btn b5" id="tc">Copy</button>
+      <button class="btn b2" id="tx">Clear</button>
+    </div>
+  </section>
+
+  <section id="count">
+    <h2>Word Counter</h2>
+    <textarea id="wc" placeholder="Text paste karein"></textarea>
+    <div class="row">
+      <span class="pill" id="c-w">0 words</span>
+      <span class="pill ok" id="c-c">0 characters</span>
+      <span class="pill" id="c-l">0 lines</span>
+    </div>
+  </section>
+
+  <section id="qrs">
+    <h2>QR Generator</h2>
+    <label for="qt">Text ya link</label>
+    <input id="qt" placeholder="https://...">
+    <div class="row"><button class="btn" id="qg">Generate QR</button></div>
+    <div id="qr-wrap"></div>
+  </section>
+
+  <section id="img">
+    <h2>Image Utility</h2>
+    <input type="file" id="file" accept="image/*">
+    <div class="row">
+      <button class="btn" id="gray">Grayscale</button>
+      <button class="btn b5" id="dl">Download</button>
+    </div>
+    <canvas id="cv"></canvas>
+  </section>
+
+  <section id="pw">
+    <h2>Password Generator</h2>
+    <label for="plen">Length: <b id="plv">16</b></label>
+    <input type="range" id="plen" min="8" max="40" value="16">
+    <div class="row"><button class="btn" id="pg">Generate</button><button class="btn b5" id="pc">Copy</button></div>
+    <div class="out" id="pout"></div>
+  </section>
+
+  <section id="lnk">
+    <h2>WhatsApp Link Maker</h2>
+    <label for="ln">Number (country code ke saath)</label>
+    <input id="ln" inputmode="tel" placeholder="923011437623">
+    <label for="lm">Pehle se likha message (optional)</label>
+    <input id="lm" placeholder="Hello">
+    <div class="row"><button class="btn" id="lg">Make Link</button><button class="btn b5" id="lc">Copy</button></div>
+    <div class="out" id="lout"></div>
+  </section>
+</main>
+
+<footer>
+  <div class="row">
+    <a class="btn b2" href="https://whatsapp.com/channel/0029Vb8ljdBL2ATvPcXyPP46" target="_blank" rel="noopener">Join WhatsApp Channel</a>
+    <a class="btn" href="https://wa.me/923011437623" target="_blank" rel="noopener">Contact on WhatsApp</a>
+  </div>
+  <p>Number: +92 301 1437623<br>&copy; 2026 ALI MD VIP TOOLS &middot; Powered By ALI MD</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+
+// ===== DATABASE (Supabase) =====
+// Yahan apna Supabase URL aur anon key daalein. Khali rahe to browser storage use hoga.
+const SUPABASE_URL='';
+const SUPABASE_KEY='';
+const useDb=!!(SUPABASE_URL&&SUPABASE_KEY);
+const H={apikey:SUPABASE_KEY,Authorization:'Bearer '+SUPABASE_KEY,'Content-Type':'application/json'};
+const DB={
+  async list(){
+    if(useDb){const r=await fetch(SUPABASE_URL+'/rest/v1/saved_messages?select=*&order=created_at.desc&limit=50',{headers:H});if(!r.ok)throw 0;return r.json()}
+    try{return JSON.parse(localStorage.getItem('alimd_saved')||'[]')}catch(e){return[]}
+  },
+  async add(o){
+    if(useDb){const r=await fetch(SUPABASE_URL+'/rest/v1/saved_messages',{method:'POST',headers:H,body:JSON.stringify(o)});if(!r.ok)throw 0;return}
+    const a=await this.list();a.unshift({...o,created_at:new Date().toISOString()});
+    try{localStorage.setItem('alimd_saved',JSON.stringify(a))}catch(e){}
+  },
+  async clear(){
+    if(useDb){await fetch(SUPABASE_URL+'/rest/v1/saved_messages?id=gt.0',{method:'DELETE',headers:H});return}
+    try{localStorage.setItem('alimd_saved','[]')}catch(e){}
+  }
+};
+$('dbst').textContent=useDb?'Database: Supabase connected':'Database: browser storage';
+if(useDb)$('dbst').classList.add('ok');
+
+// ===== TABS (har tab ka apna rang) =====
+const tabs=[['wa','WhatsApp Support','--c1'],['text','Text Tools','--c2'],['count','Word Counter','--c3'],['qrs','QR Generator','--c5'],['img','Image Utility','--c6'],['pw','Password','--c7'],['lnk','WA Link','--c4']];
+tabs.forEach(([id,name,c],i)=>{
+  const b=document.createElement('button');b.textContent=name;b.style.setProperty('--k','var('+c+')');
+  b.onclick=()=>{
+    [...$('tabs').children].forEach(x=>x.classList.toggle('on',x===b));
+    document.querySelectorAll('main section').forEach(s=>s.classList.toggle('on',s.id===id));
+    document.documentElement.style.setProperty('--ac','var('+c+')');
+  };
+  $('tabs').appendChild(b);if(!i)b.click();
+});
+
+// ===== WhatsApp support message =====
+const T={
+  appeal:n=>`Hello WhatsApp Support Team,\n\nMy WhatsApp account (${n}) has been banned. I believe this was a mistake and I have always tried to follow the WhatsApp Terms of Service.\n\n{D}\n\nI kindly request you to review my account and restore access. Thank you for your time.`,
+  restrict:n=>`Hello WhatsApp Support Team,\n\nMy WhatsApp account (${n}) has a restriction on it. I would like to understand the reason and request a review.\n\n{D}\n\nPlease let me know what steps I can take. Thank you.`,
+  biz:n=>`Hello WhatsApp Business Support,\n\nMy WhatsApp Business account (${n}) has been banned. I use it for genuine business communication and request a review of this decision.\n\n{D}\n\nThank you for your help.`
+};
+$('gen').onclick=()=>{
+  const n=$('num').value.trim()||'[number]',d=$('detail').value.trim();
+  $('msg').textContent=T[$('issue').value](n).replace('{D}',d?('Details: '+d):'').replace(/\n{3,}/g,'\n\n');
+};
+const copy=async(t,btn)=>{try{await navigator.clipboard.writeText(t);if(btn){const o=btn.textContent;btn.textContent='Copied';setTimeout(()=>btn.textContent=o,1200)}}catch(e){alert('Copy nahi hua, text select karke copy karein.')}};
+$('copy').onclick=()=>copy($('msg').textContent,$('copy'));
+async function render(){
+  const h=$('hist');h.innerHTML='';let a=[];
+  try{a=await DB.list()}catch(e){h.innerHTML='<small class="note">Database se load nahi hua. URL, key aur table check karein.</small>';return}
+  if(!a.length){h.innerHTML='<small class="note">Abhi kuch saved nahi hai.</small>';return}
+  a.forEach(x=>{
+    const d=document.createElement('div');d.innerHTML='<small></small><span></span>';
+    d.firstChild.textContent=new Date(x.created_at).toLocaleString()+' · '+(x.number||'-');
+    d.lastChild.textContent=(x.body||'').slice(0,90)+'...';
+    d.onclick=()=>{$('msg').textContent=x.body};h.appendChild(d);
+  });
+}
+$('save').onclick=async()=>{
+  const t=$('msg').textContent;if(!t||t.startsWith('Message yahan'))return;
+  try{await DB.add({number:$('num').value||'-',body:t})}catch(e){alert('Save nahi hua. Database settings check karein.')}
+  render();
+};
+$('clr').onclick=async()=>{await DB.clear();render()};
+render();
+
+// ===== Text tools =====
+$('up').onclick=()=>$('tt').value=$('tt').value.toUpperCase();
+$('lo').onclick=()=>$('tt').value=$('tt').value.toLowerCase();
+$('tc').onclick=()=>copy($('tt').value,$('tc'));
+$('tx').onclick=()=>$('tt').value='';
+
+// ===== Word counter =====
+$('wc').oninput=()=>{
+  const v=$('wc').value;
+  $('c-w').textContent=(v.trim()?v.trim().split(/\s+/).length:0)+' words';
+  $('c-c').textContent=v.length+' characters';
+  $('c-l').textContent=(v?v.split('\n').length:0)+' lines';
+};
+
+// ===== QR =====
+$('qg').onclick=()=>{
+  const v=$('qt').value.trim();if(!v)return;
+  $('qr-wrap').innerHTML='<div id="qr"></div>';
+  new QRCode($('qr'),{text:v,width:220,height:220});
+};
+
+// ===== Image =====
+const cv=$('cv'),cx=cv.getContext('2d');
+$('file').onchange=e=>{
+  const f=e.target.files[0];if(!f)return;
+  const im=new Image();im.onload=()=>{cv.width=im.width;cv.height=im.height;cx.drawImage(im,0,0)};
+  im.src=URL.createObjectURL(f);
+};
+$('gray').onclick=()=>{
+  if(!cv.width)return;
+  const d=cx.getImageData(0,0,cv.width,cv.height),p=d.data;
+  for(let i=0;i<p.length;i+=4){const g=.299*p[i]+.587*p[i+1]+.114*p[i+2];p[i]=p[i+1]=p[i+2]=g}
+  cx.putImageData(d,0,0);
+};
+$('dl').onclick=()=>{
+  if(!cv.width)return;
+  const a=document.createElement('a');a.download='alimd-image.png';a.href=cv.toDataURL('image/png');a.click();
+};
+
+// ===== Password =====
+$('plen').oninput=()=>$('plv').textContent=$('plen').value;
+$('pg').onclick=()=>{
+  const s='ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#$%&*?';
+  const n=+$('plen').value,r=new Uint32Array(n);crypto.getRandomValues(r);
+  $('pout').textContent=[...r].map(x=>s[x%s.length]).join('');
+};
+$('pc').onclick=()=>copy($('pout').textContent,$('pc'));
+
+// ===== WA link =====
+$('lg').onclick=()=>{
+  const n=$('ln').value.replace(/\D/g,'');if(!n)return;
+  const m=$('lm').value.trim();
+  $('lout').textContent='https://wa.me/'+n+(m?'?text='+encodeURIComponent(m):'');
+};
+$('lc').onclick=()=>copy($('lout').textContent,$('lc'));
+
+// ===== Welcome, popups, notifications, install =====
+const clk=()=>{const d=new Date();let h=d.getHours()%12||12;$('clock').textContent=h+':'+String(d.getMinutes()).padStart(2,'0')+':'+String(d.getSeconds()).padStart(2,'0')+(d.getHours()<12?' AM':' PM')};
+clk();setInterval(clk,1000);
+const openM=id=>$(id).classList.add('on');
+document.querySelectorAll('[data-x]').forEach(b=>b.onclick=()=>$(b.dataset.x).classList.remove('on'));
+document.querySelectorAll('.mod').forEach(m=>m.onclick=e=>{if(e.target===m)m.classList.remove('on')});
+$('comm').onclick=()=>openM('m1');
+$('bell').onclick=()=>openM('m2');
+$('mar').onclick=()=>{document.querySelectorAll('#nl div').forEach(d=>d.classList.add('read'));$('bn').style.display='none'};
+try{if(!sessionStorage.getItem('alimd_seen')){openM('m1');sessionStorage.setItem('alimd_seen','1')}}catch(e){openM('m1')}
+let dp;
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();dp=e;$('inst').style.display=''});
+$('inst').onclick=async()=>{if(!dp)return;dp.prompt();await dp.userChoice;dp=null;$('inst').style.display='none'};
+</script>
+</body>
+  </html>
+  
