@@ -189,5 +189,80 @@ t.style.display=t.dataset.name.toLowerCase().includes(q)?"block":"none";
 }
 </script>
 
+<!-- ALI MD VIP TOOLS - WhatsApp Ban / Unban Support -->
+<section id="wa-support" style="background:#080d0a;color:#fff;padding:20px;border:1px solid #39ff14;border-radius:16px;margin:22px auto;max-width:600px;font-family:Arial,sans-serif">
+  <h2 style="color:#39ff14;text-align:center">ALI MD WHATSAPP SUPPORT</h2>
+  <p style="text-align:center;color:#ccc">Ban Report &amp; Unban Appeal</p>
+
+  <label for="wa-number">WhatsApp Number (country code ke saath)</label>
+  <input id="wa-number" type="tel" placeholder="923001234567" style="box-sizing:border-box;width:100%;padding:12px;margin:8px 0 14px;background:#111;color:#fff;border:1px solid #39ff14;border-radius:8px">
+
+  <label for="wa-issue">Apna issue select karein</label>
+  <select id="wa-issue" style="box-sizing:border-box;width:100%;padding:12px;margin:8px 0 14px;background:#111;color:#fff;border-radius:8px">
+    <option value="unban">My WhatsApp account is banned — Unban Appeal</option>
+    <option value="report">Report an account restriction</option>
+    <option value="business">WhatsApp Business account is banned</option>
+  </select>
+
+  <label for="wa-details">Issue ki tafseel</label>
+  <textarea id="wa-details" rows="4" placeholder="Apna masla yahan likhein..." style="box-sizing:border-box;width:100%;padding:12px;margin:8px 0 14px;background:#111;color:#fff;border:1px solid #39ff14;border-radius:8px"></textarea>
+
+  <button type="button" onclick="aliWaGenerate()" style="width:100%;padding:13px;background:#39ff14;color:#061008;border:0;border-radius:8px;font-weight:bold">Generate Support Message</button>
+
+  <textarea id="wa-message" rows="8" readonly placeholder="Support message yahan nazar aayega..." style="box-sizing:border-box;width:100%;padding:12px;margin:12px 0;background:#111;color:#fff;border:1px solid #39ff14;border-radius:8px"></textarea>
+
+  <button type="button" onclick="aliWaCopy()" style="width:100%;padding:12px;background:#15251a;color:#39ff14;border:1px solid #39ff14;border-radius:8px">Copy Message</button>
+
+  <a href="https://faq.whatsapp.com/" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:13px;margin-top:12px;background:#39ff14;color:#061008;border-radius:8px;text-decoration:none;font-weight:bold">Official WhatsApp Help</a>
+
+  <a href="https://whatsapp.com/channel/0029Vb8ljdBL2ATvPcXyPP46" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:13px;margin-top:10px;background:#111;color:#39ff14;border:1px solid #39ff14;border-radius:8px;text-decoration:none;font-weight:bold">Join ALI MD WhatsApp Channel</a>
+
+  <a href="https://wa.me/923011437623" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;padding:13px;margin-top:10px;background:#111;color:#39ff14;border:1px solid #39ff14;border-radius:8px;text-decoration:none;font-weight:bold">Contact ALI MD (+92 301 1437623)</a>
+
+  <p style="font-size:12px;color:#bbb;text-align:center;margin-top:14px">Only WhatsApp can review and remove an account ban. Never share your OTP or verification code.</p>
+</section>
+
+<script>
+function aliWaGenerate() {
+  const number = document.getElementById('wa-number').value.trim();
+  const issue = document.getElementById('wa-issue');
+  const details = document.getElementById('wa-details').value.trim();
+
+  if (!/^\d{8,15}$/.test(number) || !details) {
+    alert('Enter a valid number without + and describe your issue.');
+    return;
+  }
+
+  document.getElementById('wa-message').value =
+`Hello WhatsApp Support,
+
+Issue: ${issue.options[issue.selectedIndex].text}
+Phone number: +${number}
+
+Details:
+${details}
+
+Please review my account and advise me on the appropriate steps. If the restriction was applied by mistake, kindly review my account for restoration.
+
+Thank you.`;
+}
+
+async function aliWaCopy() {
+  const box = document.getElementById('wa-message');
+  if (!box.value) {
+    alert('Generate the message first.');
+    return;
+  }
+  try {
+    await navigator.clipboard.writeText(box.value);
+    alert('Message copied successfully.');
+  } catch (e) {
+    box.focus();
+    box.select();
+    alert('Message selected. Use Copy from your phone menu.');
+  }
+}
+  </script>
+    
 </body>
 </html>
