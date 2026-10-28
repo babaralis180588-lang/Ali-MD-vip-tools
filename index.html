@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALI MD VIP TOOLS OS - 58 Tools</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
+body{background:#0a0614;color:#fff}
+.top{position:sticky;top:0;z-index:10;background:#0a0614;padding:12px;border-bottom:1px solid #222;display:flex;justify-content:space-between}
+.top b{background:#1c1433;padding:8px 14px;border-radius:20px;font-size:12px;cursor:pointer}
+.hero{text-align:center;padding:18px 10px}
+.pill{background:#ff6a00;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:800;display:inline-block}
+.grid{max-width:1200px;margin:10px auto;padding:0 10px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:600px){.grid{grid-template-columns:repeat(4,1fr)}}
+.box{background:#16102a;border:1px solid #2a2150;border-radius:14px;padding:12px;text-align:center;cursor:pointer}
+.box h3{font-size:11px;margin-top:8px;min-height:28px}
+.icon{font-size:26px;width:56px;height:56px;background:#0f0a22;margin:auto;border-radius:12px;display:grid;place-items:center}
+.view{display:none;max-width:600px;margin:15px auto;background:#16102a;border:1px solid #333;padding:16px;border-radius:14px}
+.view.active{display:block}
+input{width:100%;padding:11px;margin-top:8px;border-radius:10px;border:1px solid #333;background:#0a0614;color:#fff}
+button{width:100%;margin-top:10px;background:#ff6a00;border:none;padding:12px;border-radius:25px;color:#fff;font-weight:800;cursor:pointer}
+.out{margin-top:10px;background:#0a0614;border:1px dashed #ff6a00;padding:10px;border-radius:10px;font-size:12px;white-space:pre-wrap;word-break:break-all;min-height:50px}
+</style>
+</head>
+<body>
+<div class="top"><b onclick="goHome()">← HOME</b><b>ALI VIP 03011437623</b></div>
+<div id="hero" class="hero">
+<div class="pill">ALI MD VIP TOOLS - 58 TOOLS - POWERED BY ALI 03011437623</div>
+<h2 style="margin-top:10px">ALI MD VIP TOOLS OS</h2>
+<p style="color:#8b7ab0;font-size:11px;margin-top:6px">Join Channel: whatsapp.com/channel/0029Vb8ljdBL2ATvPcXyPP46</p>
+<input id="s" placeholder="Search 58 tools - Wingo, QR, CV..." oninput="searchTools()" style="width:100%;max-width:500px;margin:12px auto;display:block;padding:12px;border-radius:25px;border:1px solid #333;background:#16102a;color:#fff">
+</div>
+<div class="grid" id="home"></div>
+<div id="view" class="view">
+<div style="color:#8b7ab0;font-size:12px;cursor:pointer" onclick="goHome()">← Back to OS</div>
+<h2 id="vt" style="color:#ff6a00;margin-top:8px;font-size:16px"></h2>
+<p id="vd" style="color:#8b7ab0;font-size:11px;margin-top:4px"></p>
+<div id="vi"></div>
+<button onclick="run()">Generate / Check</button>
+<div id="vo" class="out">Result will appear here...</div>
+<a href="https://wa.me/923011437623" style="display:block;margin-top:10px;background:#25D366;color:#fff;padding:11px;border-radius:25px;text-align:center;text-decoration:none;font-weight:800">WhatsApp Ali: 03011437623</a>
+<a href="https://whatsapp.com/channel/0029Vb8ljdBL2ATvPcXyPP46" style="display:block;margin-top:8px;background:#111636;border:1px solid #2a2150;color:#fff;padding:11px;border-radius:25px;text-align:center;text-decoration:none;font-weight:800">Join Channel</a>
+</div>
+<script>
+const toolsList=[
+{id:'waChannel',name:'VIP WhatsApp Channel',icon:'💬',cat:'wa',desc:'Join channel',inputs:[],run:()=>`Join Now: https://whatsapp.com/channel/0029Vb8ljdBL2ATvPcXyPP46`},
+{id:'unban',name:'WhatsApp Unban',icon:'🔓',cat:'wa',desc:'Unban appeal',inputs:['Number 923...','Reason'],run:(a,b)=>`Hello Support, Please Unban +${a}, Reason: ${b} - By Ali`},
+{id:'waLink',name:'Wa Link Generator',icon:'🔗',cat:'wa',desc:'wa.me link',inputs:['Number 923...','Message'],run:(a,b)=>`https://wa.me/${a}?text=${encodeURIComponent(b)}`},
+{id:'direct',name:'Direct Chat No Save',icon:'💬',cat:'wa',desc:'Chat without save',inputs:['Number 923...'],run:(a)=>{window.open('https://wa.me/'+a);return `Opened https://wa.me/${a}`}},
+{id:'stylish',name:'Stylish Name 100+',icon:'✨',cat:'text',desc:'Stylish name',inputs:['Name e.g. Ali'],run:(a)=>`꧁༺ ${a} ༻꧂\n★ ${a} ★\n『 ${a} 』\n༒ ${a} ༒`},
+{id:'bio',name:'Bio Generator',icon:'📝',cat:'text',desc:'Bio maker',inputs:['Bio Text'],run:(a)=>`♛ ${a} ♛\n🔥 ${a.toUpperCase()} 🔥`},
+{id:'fancy',name:'Fancy Text',icon:'🔠',cat:'text',desc:'Fancy fonts',inputs:['Text'],run:(a)=>`Fancy: ${a.toUpperCase()}\nBold: ${a}`},
+{id:'repeater',name:'Text Repeater 1000x',icon:'🔁',cat:'text',desc:'Repeat text',inputs:['Text','Count'],run:(a,b)=>{let c=Math.min(parseInt(b)||5,50);return Array(c).fill(a).join('\n')}},
+{id:'pass',name:'Password Generator',icon:'🔑',cat:'dev',desc:'Secure password',inputs:['Length e.g. 12'],run:(a)=>{let l=parseInt(a)||12;let s='ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz123456789@#';let p='';for(let i=0;i<l;i++)p+=s[Math.floor(Math.random()*s.length)];return p}},
+{id:'qr',name:'QR Generator',icon:'📱',cat:'dev',desc:'Instant QR',inputs:['Text / Link'],run:(a)=>{document.getElementById('vo').innerHTML=`<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(a)}" style="border-radius:10px"><br>${a}`;return 'QR Generated'}},
+{id:'age',name:'Age Calculator',icon:'🎂',cat:'dev',desc:'Calculate age',inputs:['Birth Year e.g. 2005'],run:(a)=>`Age: ${new Date().getFullYear()-parseInt(a)} Years`},
+{id:'bmi',name:'BMI Calculator',icon:'💪',cat:'dev',desc:'BMI calc',inputs:['Height cm','Weight kg'],run:(h,w)=>{let b=(w/((h/100)*(h/100))).toFixed(2);return `BMI: ${b}`}},
+{id:'wingo',name:'Wingo Predictor (Simulator Fun Only)',icon:'🎯',cat:'ai',desc:'Random Fun - Not Real',inputs:['Period'],run:(a)=>`SIMULATOR ONLY - Period ${a} => ${['RED','GREEN'][Math.floor(Math.random()*2)]} ${Math.floor(Math.random()*10)} - Fun Only - Powered By Ali`},
+{id:'aviator',name:'Aviator Predictor (Simulator)',icon:'✈️',cat:'ai',desc:'Random Fun - Not Real',inputs:['Round ID'],run:(a)=>`SIMULATOR ONLY - Round ${a} => ${(Math.random()*5+1).toFixed(2)}x - Fun Only`},
+{id:'videoPrompt',name:'AI Video Prompt Generator',icon:'🎬',cat:'ai',desc:'Video prompt',inputs:['Topic e.g. Bike'],run:(a)=>`Cinematic Prompt for "${a}", 8k, ultra realistic, drone shot - Powered By Ali`},
+{id:'qwen',name:'Qwen Prompt Enhancer',icon:'🤖',cat:'ai',desc:'Enhance prompt',inputs:['Your Prompt'],run:(a)=>`Enhanced: ${a}, 4k, masterpiece, best quality`},
+{id:'location',name:'Location Link Generator',icon:'📍',cat:'dev',desc:'Map link safe',inputs:['Place e.g. Karachi'],run:(a)=>`https://www.google.com/maps/search/${encodeURIComponent(a)}`},
+{id:'device',name:'Device Info Viewer',icon:'📱',cat:'dev',desc:'Safe info',inputs:[],run:()=>`UA: ${navigator.userAgent}\nScreen: ${screen.width}x${screen.height}\nLanguage: ${navigator.language}`},
+{id:'birthday',name:'Birthday Card Maker',icon:'🎂',cat:'ai',desc:'Birthday wish',inputs:['Name'],run:(a)=>`🎂 Happy Birthday ${a}! 🎉\nFrom ALI MD VIP TOOLS`},
+{id:'love',name:'Love Calculator (Fun)',icon:'❤️',cat:'ai',desc:'Fun prank',inputs:['Your Name','Crush Name'],run:(a,b)=>`${a} + ${b} = ${Math.floor(Math.random()*100)}% Love (Fun Only)`},
+{id:'friend',name:'Friendship Calculator',icon:'💕',cat:'ai',desc:'Fun prank',inputs:['Name1','Name2'],run:(a,b)=>`${a} & ${b} = ${Math.floor(Math.random()*100)}% Friends`},
+{id:'fakeCall',name:'Fake Call Prank',icon:'📞',cat:'dev',desc:'Prank screen',inputs:['Caller Name'],run:(a)=>`📞 Incoming Call (Prank): ${a} calling...`},
+{id:'cv',name:'CV Maker',icon:'📄',cat:'dev',desc:'Professional CV',inputs:['Your Name','Skill'],run:(a,b)=>`CV\nName: ${a}\nSkill: ${b}\nContact: 03011437623\nChannel: whatsapp.com/channel/0029Vb8ljdBL2ATvPcXyPP46`},
+{id:'ip',name:'My IP Finder',icon:'🌐',cat:'dev',desc:'Find IP',inputs:[],run:()=>{fetch('https://api.ipify.org?format=json').then(r=>r.json()).then(d=>document.getElementById('vo').innerText='Your IP: '+d.ip+'\nPowered By Ali').catch(()=>{});return 'Fetching IP...'}},
+{id:'receipt',name:'Receipt Generator (FAKE FUN)',icon:'💸',cat:'dev',desc:'Clearly FAKE',inputs:['Name','Amount'],run:(a,b)=>`⚠️ FAKE RECEIPT - FUN ONLY - NOT REAL\nName: ${a}\nAmount: Rs ${b}\nFAKE PRANK - Powered By Ali`},
+{id:'meta',name:'Website Meta Viewer',icon:'🌐',cat:'dev',desc:'Safe meta',inputs:['Website URL'],run:(a)=>`Meta Viewer for ${a} - Safe Tool, No Cloning`},
+{id:'hosting',name:'Hosting Cost Calculator',icon:'☁️',cat:'dev',desc:'Cost calc',inputs:['Months e.g. 12'],run:(a)=>`Cost: Rs ${parseInt(a||1)*500} (Rs 500/month)`},
+{id:'upper',name:'Upper Lower Case',icon:'🔤',cat:'text',desc:'Case convert',inputs:['Text'],run:(a)=>`UPPER: ${a.toUpperCase()}\nlower: ${a.toLowerCase()}`},
+{id:'reverse',name:'Reverse Text',icon:'↔️',cat:'text',desc:'Reverse',inputs:['Text'],run:(a)=>a.split('').reverse().join('')},
+{id:'color',name:'Color Picker Code',icon:'🎨',cat:'dev',desc:'Color code',inputs:['Color e.g. #ff6a00'],run:(a)=>`Color Code: ${a}`},
+{id:'yt',name:'YT Thumbnail Downloader',icon:'📷',cat:'dev',desc:'YT thumb',inputs:['Video ID e.g. dQw4w9WgXcQ'],run:(a)=>{document.getElementById('vo').innerHTML=`<img src="https://img.youtube.com/vi/${a}/maxresdefault.jpg" style="width:100%;border-radius:10px"><br>Thumbnail for ${a}`;return 'Thumb loaded'}},
+{id:'time',name:'Time Now PK',icon:'⏰',cat:'dev',desc:'PK Time',inputs:[],run:()=>new Date().toLocaleString('en-PK',{timeZone:'Asia/Karachi'})+' - PK Time'},
+{id:'url',name:'URL Encoder',icon:'🔗',cat:'dev',desc:'Encode URL',inputs:['URL'],run:(a)=>`Encoded: ${encodeURIComponent(a)}`},
+{id:'emoji',name:'Emoji Adder',icon:'😎',cat:'text',desc:'Add emoji',inputs:['Text'],run:(a)=>`😎 ${a} 🔥 ${a} ✨`},
+{id:'notepad',name:'Notepad Save',icon:'📝',cat:'dev',desc:'Save notes',inputs:['Your Notes'],run:(a)=>`Saved: ${a} - In Browser`},
+];
+let cur=null;
+function renderHome(){
+let h=document.getElementById('home');h.innerHTML='';
+toolsList.forEach(t=>{
+let d=document.createElement('div');d.className='box';
+d.innerHTML=`<div class="icon">${t.icon}</div><h3>${t.name}</h3><p style="color:#6d5e95;font-size:9px">${t.desc}</p>`;
+d.onclick=()=>openTool(t.id);
+h.appendChild(d);
+});
+}
+function openTool(id){
+cur=toolsList.find(x=>x.id===id);
+document.getElementById('home').style.display='none';
+document.getElementById('hero').style.display='none';
+document.getElementById('view').classList.add('active');
+document.getElementById('vt').innerText=cur.name;
+document.getElementById('vd').innerText=cur.desc;
+let vi=document.getElementById('vi');vi.innerHTML='';
+cur.inputs.forEach((p,i)=>{
+let inp=document.createElement('input');
+inp.placeholder=p;inp.id='in'+i;
+vi.appendChild(inp);
+});
+document.getElementById('vo').innerText='Result will appear here - Powered By Ali 03011437623';
+window.scrollTo(0,0);
+}
+function goHome(){
+document.getElementById('home').style.display='grid';
+document.getElementById('hero').style.display='block';
+document.getElementById('view').classList.remove('
