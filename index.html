@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ALI MD VIP TOOLS - 58 Tools With Icons</title>
+<style>
+body{margin:0;background:#0a0614;color:#fff;font-family:Arial}
+.top{padding:12px;text-align:center;border-bottom:1px solid #221a40;position:sticky;top:0;background:#0a0614;z-index:10}
+.pill{background:linear-gradient(90deg,#ff6a00,#ffae00);padding:6px 12px;border-radius:20px;font-size:10px;font-weight:800;display:inline-block}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px;max-width:1200px;margin:auto}
+@media(min-width:700px){.grid{grid-template-columns:1fr 1fr 1fr 1fr}}
+.card{background:#16102a;border:1px solid #2a2150;border-radius:14px;padding:12px;text-align:center;cursor:pointer;width:100%;color:#fff}
+.card:active{border-color:#ff6a00;transform:scale(0.97)}
+.icon{font-size:32px;width:58px;height:58px;background:#0f0a22;margin:auto;border-radius:14px;display:grid;place-items:center;border:1px solid #221a40}
+.card h3{font-size:10px;margin-top:8px;min-height:28px;line-height:1.2}
+.card p{font-size:8px;color:#6d5e95;margin-top:3px}
+#view{display:none;max-width:600px;margin:10px auto;background:#16102a;border:1px solid #333;padding:15px;border-radius:14px;position:fixed;top:0;left:0;right:0;bottom:0;overflow:auto;z-index:99}
+input{width:100%;padding:12px;margin-top:8px;border-radius:8px;border:1px solid #444;background:#000;color:#fff;box-sizing:border-box}
+.btn{width:100%;background:#ff6a00;color:#fff;border:none;padding:13px;border-radius:25px;margin-top:12px;font-weight:800}
+.out{background:#000;border:1px dashed #ff6a00;padding:12px;margin-top:12px;border-radius:8px;white-space:pre-wrap;word-break:break-all;min-height:60px;font-size:13px}
+</style>
+</head>
+<body>
+<div class="top">
+<div class="pill">ALI MD VIP TOOLS OS • 58 TOOLS • POWERED BY ALI 03011437623</div>
+<h2 style="margin-top:8px;font-size:16px;color:#ff6a00">ALI MD VIP TOOLS OS</h2>
+<input id="search" placeholder="Search 58 tools..." onkeyup="filterTools()" style="margin-top:10px;max-width:500px;width:100%;padding:12px;border-radius:25px;border:1px solid #333;background:#16102a;color:#fff">
+</div>
+<div id="home" class="grid"></div>
+<div id="view">
+<div onclick="closeView()" style="color:#ff6a00;cursor:pointer;padding:8px;background:#000;border-radius:20px;display:inline-block">← BACK TO HOME</div>
+<h2 id="vt" style="color:#ff6a00;margin-top:15px;font-size:18px"></h2>
+<p id="vd" style="color:#888;font-size:12px;margin-top:5px"></p>
+<div id="vi"></div>
+<button class="btn" onclick="doGenerate()">GENERATE NOW</button>
+<div id="vo" class="out">Result yahan ayega...</div>
+<a href="https://wa.me/923011437623" style="display:block;margin-top:12px;background:#25D366;color:#fff;padding:13px;border-radius:25px;text-align:center;text-decoration:none;font-weight:bold">WhatsApp Ali: 03011437623</a>
+</div>
+<script>
+var toolsData=[
+["💬","VIP WhatsApp Channel","Join Official Channel",[],function(){return "Join: https://whatsapp.com/channel/0029Vb8ljdBL2ATvPcXyPP46";}],
+["👤","Social Bio Ideas","Bio ideas safe",["Name"],function(a){return "Bio for "+a+":\n🔥 "+a+" | Dreamer\nBy Ali";}],
+["⚙️","API Tester Idea","Safe API idea",["API URL"],function(a){return "API: "+a+"\nSafe Tester - By Ali";}],
+["📁","Own Portfolio Builder","Portfolio template",["Your Name"],function(a){return "Portfolio: Hi I am "+a+", Dev - 03011437623";}],
+["📦","APK Info Checker","APK info safe",["APK Name"],function(a){return "APK: "+a+"\nVersion 1.0 Safe";}],
+["💻","Source Code Vault","50+ codes",["Language"],function(a){return "Codes for "+a+" - 50+ snippets By Ali";}],
+["📚","Free Courses Hub","Courses list",["Topic"],function(a){return "Courses for "+a+": Basics, Advanced";}],
+["🎯","Wingo AI Predictor (Simulator)","RANDOM FUN ONLY",["Period"],function(a){return "⚠️ SIMULATOR ONLY\nPeriod "+a+" => "+(Math.random()>0.5?"RED":"GREEN")+" "+Math.floor(Math.random()*10)+"\nFun Only";}],
+["✈️","Aviator AI Predictor (Simulator)","RANDOM FUN",["Round ID"],function(a){return "⚠️ SIMULATOR ONLY\nRound "+a+" => "+(Math.random()*5+1).toFixed(2)+"x\nFun Only";}],
+["🎬","AI Video Prompt Generator","Video prompt",["Topic"],function(a){return "Prompt for "+a+", 8k cinematic - By Ali";}],
+["🤖","Qwen Video Studio Prompt","Enhance prompt",["Your Prompt"],function(a){return "Enhanced: "+a+", 4k masterpiece";}],
+["📍","Location Link Generator","Map link safe",["Place"],function(a){return "https://www.google.com/maps/search/"+encodeURIComponent(a);}],
+["🛡️","Proxy Format Validator","Check proxy safe",["Proxy 1.1.1.1:8080"],function(a){return /^\d+\.\d+\.\d+\.\d+:\d+$/.test(a)?"✅ Valid: "+a:"❌ Invalid";}],
+["💬","Fake Chat Maker","Fake chat prank",["Name","Message"],function(a,b){return a+": "+b+" ✓✓ [Fake]";}],
+["📱","Device Info Viewer","Your device safe",[],function(){return "Screen: "+screen.width+"x"+screen.height+"\nLang: "+navigator.language+"\nBy Ali";}],
+["🎂","Birthday Card Maker","Birthday wish",["Name"],function(a){return "🎂 Happy Birthday "+a+"! 🎉\nFrom ALI MD VIP TOOLS";}],
+["❤️","Love Calculator Fun","Fun only",["Your Name","Crush Name"],function(a,b){return a+" + "+b+" = "+Math.floor(Math.random()*100)+"% Love (Fun)";}],
+["💕","Friend Loving Web","Friendship fun",["Name1","Name2"],function(a,b){return a+" & "+b+" = "+Math.floor(Math.random()*100)+"% Friends";}],
+["📞","True Call - Fake Call Prank","Prank screen only",["Caller Name"],function(a){return "📞 Incoming Call (Prank)\n"+a+" calling...";}],
+["📷","Camera Filter Names","Filter ideas safe",["Photo Type"],function(a){return "Filters for "+a+": Vintage, Blur, Neon, B&W";}],
+["📄","CV Maker Professional","CV builder",["Your Name","Skill"],function(a,b){return "CV\nName: "+a+"\nSkill: "+b+"\n03011437623";}],
+["🌐","IP Lookup - My IP","Find my IP safe",[],function(){fetch('https://api.ipify.org?format=json').then(r=>r.json()).then(d=>document.getElementById('vo').innerText='Your IP: '+d.ip).catch(()=>{});return 'Fetching IP...';}],
+["💸","Receipt Generator (FAKE FUN)","Clearly FAKE",["Name","Amount"],function(a,b){return "⚠️ FAKE - FUN ONLY\nName: "+a+"\nAmount: Rs "+b+"\nFAKE PRANK";}],
+["🔍","Website Meta Viewer","Meta viewer safe",["Website URL"],function(a){return "Meta for: "+a+"\nSafe - No Clone - By Ali";}],
+["☁️","Web Hosting Cost Calculator","Hosting cost",["Months"],function(a){return (parseInt(a)||1)+" Month = Rs "+(parseInt(a||1)*500);}],
+["🛠️","Create Your Own Toolkit","Toolkit idea",["Toolkit Name"],function(a){return 'Toolkit "'+a+'" Created! By Ali';}],
+["🔓","WhatsApp Unban Tool","Unban appeal",["Number 923...","Reason"],function(a,b){return "Unban Request for +"+a+"\nReason: "+b;}],
+["🔗","Wa Link Generator","wa.me link",["Number 923...","Message"],function(a,b){return "https://wa.me/"+a+"?text="+encodeURIComponent(b);}],
+["💬","Direct Chat No Save","Open chat",["Number 923..."],function(a){window.open("https://wa.me/"+a);return "Opened https://wa.me/"+a;}],
+["✨","Stylish Name 100+","Stylish fonts",["Name Ali"],function(a){return "꧁ "+a+" ꧂\n★ "+a+" ★\n『 "+a+" 』";}],
+["📝","Stylish Bio Generator","Bio maker",["Bio Text"],function(a){return "♛ "+a+" ♛";}],
+["ℹ️","About Text Generator","About maker",["About Text"],function(a){return "❖ "+a+" | By Ali";}],
+["🔠","Fancy Text Generator","Fancy fonts",["Text"],function(a){return "Fancy: "+a.toUpperCase();}],
+["🔁","Text Repeater 1000x","Repeat text",["Text","Count"],function(a,b){var c=Math.min(parseInt(b)||5,50);var r='';for(var k=0;k<c;k++)r+=a+"\n";return r;}],
+["🔑","Password Generator","Secure password",["Length e.g. 12"],function(a){var l=parseInt(a)||12;var s='ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz123456789@#';var p='';for(var k=0;k<l;k++)p+=s[Math.floor(Math.random()*s.length)];return p;}],
+["🔳","QR Generator","Instant QR",["Text / Link"],function(a){document.getElementById('vo').innerHTML='<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data='+encodeURIComponent(a)+'" style="border-radius:10px"><br>'+a;return 'QR Generated';}],
+["🎂","Age Calculator","Age calc",["Birth Year e.g. 2005"],function(a){return 'Age: '+(new Date().getFullYear()-parseInt(a))+' Years';}],
+["💪","BMI Calculator","Health calc",["Height cm","Weight kg"],function(a,b){return 'BMI: '+(b/((a/100)*(a/100))).toFixed(2);}],
+["🔤","Upper Lower Case","Case convert",["Text"],function(a){return 'UPPER: '+a.toUpperCase()+'\nlower: '+a.toLowerCase();}],
+["↔️","Reverse Text","Reverse",["Text"],function(a){return a.split('').reverse().join('');}],
+["🎨","Color Picker Code","Color code",["Color #ff6a00"],function(a){return 'Color: '+a;}],
+["🖼️","YT Thumbnail Downloader","YT thumb",["Video ID"],function(a){document.getElementById('vo').innerHTML='<img src="https://img.youtube.com/vi/'+a+'/maxresdefault.jpg" style="width:100%;border-radius:10px">';return 'Thumb loaded';}],
+["⏰","Time Now PK","PK time now",[],function(){return new Date().toLocaleString('en-PK',{timeZone:'Asia/Karachi'});}],
+["🔗","URL Encoder Decoder","Encode URL",["URL"],function(a){return encodeURIComponent(a);}],
+["😎","Emoji Adder","Add emojis",["Text"],function(a){return '😎 '+a+' 🔥';}],
+["📝","Notepad Save","Save notes",["Your Notes"],function(a){localStorage.setItem('ali_notes',a);return 'Saved: '+a;}],
+["🌍","Country Info Finder","Country info",["Country"],function(a){return 'Country: '+a+' - By Ali';}],
+["🔢","Number to Words","Convert number",["Number"],function(a){return 'Number: '+a+' By Ali';}],
+["💬","Fake WhatsApp Chat","Fake chat fun",["Name","Message"],function(a,b){return a+': '+b+' ✓✓ [Fake]';}],
+["📢","Wa Channel Link Generator","Channel link",["Channel ID"],function(a){return 'https://whatsapp.com/channel/'+a;}],
+["👻","Zalgo Text","Zalgo fun",["Text"],function(a){return a.split('').map(function(c){return c+'\u0300';}).join('');}],
+["𝐁","Bold Text Generator","Bold style",["Text"],function(a){return '𝗕𝗼𝗹𝗱: '+a;}],
+["#️⃣","Hashtag Generator","Hashtags",["Topic"],function(a){return '#'+a+' #'+a+'Lover';}],
+["👻","Invisible Text","Invisible char",["Length"],function(a){return 'Invisible '+a+' chars copied';}],
+["🌈","Gradient Generator Idea","Gradient idea",["Color1","Color2"],function(a,b){return 'Gradient: linear-gradient(90deg,'+a+','+b+')';}],
+["⚡","Speed Test Idea","Speed test",[""],function(){return 'Check on fast.com - By Ali';}],
+["🎥","Screen Recorder Idea","Recorder",[""],function(){return 'Screen Recorder Concept - By Ali';}],
+["📅","Age in Days","Days calc",["Birth Year"],function(a){return 'Days: ~'+((new Date().getFullYear()-parseInt(a))*365);}]
+];
+var curIdx=-1;
+function makeHome(){
+var home=document.getElementById('home');home.innerHTML='';
+for(var i=0;i<toolsData.length;i++){
+var btn=document.createElement('button');btn.className='card';
+btn.innerHTML='<div class="icon">'+toolsData[i][0]+'</div><h3>'+toolsData[i][1]+'</h3><p>'+toolsData[i][2]+'</p>';
+btn.setAttribute('data-name',toolsData[i][1].toLowerCase());
+btn.setAttribute('data-idx',i);
+btn.onclick=function(){openView(parseInt(this.getAttribute('data-idx')));};
+home.appendChild(btn);
+}
+var total=document.createElement('div');total.style.gridColumn='1/-1';total.style.textAlign='center';total.style.color='#4a3d6a';total.style.fontSize='10px';total.style.padding='10px';
+total.innerText='Total Tools: '+toolsData.length+' - Powered By Ali 03011437623 - All With Icons';
+home.appendChild(total);
+}
+function openView(idx){
+curIdx=idx;var t=toolsData[idx];
+document.getElementById('home').style.display='none';
+document.getElementById('view').style.display='block';
+document.getElementById('vt').innerText=t[1];
+document.getElementById('vd').innerText=t[2];
+var vi=document.getElementById('vi');vi.innerHTML='';
+for(var j=0;j<t[3].length;j++){var inp=document.createElement('input');inp.placeholder=t[3][j];inp.id='in'+j;vi.appendChild(inp);}
+document.getElementById('vo').innerText='Result yahan ayega - Powered By Ali 03011437623';
+window.scrollTo(0,0);
+}
+function closeView(){document.getElementById('home').style.display='grid';document.getElementById('view').style.display='none';curIdx=-1;}
+function doGenerate(){
+if(curIdx<0) return;
+var t=toolsData[curIdx];var vals=[];
+for(var j=0;j<t[3].length;j++){vals.push(document.getElementById('in'+j).value||'');}
+var res=t[4].apply(null,vals);
+var out=document.getElementById('vo');
+if(out.innerHTML.startsWith('<img')){}else{out.innerText=res;}
+}
+function filterTools(){
+var q=document.getElementById('search').value.toLowerCase();
+var cards=document.querySelectorAll('.card');
+for(var i=0;i<cards.length;i++){var name=cards[i].getAttribute('data-name');cards[i].style.display=name.indexOf(q)>-1?'block':'none';}
+}
+makeHome();
+</script>
+</body>
+  </html>
